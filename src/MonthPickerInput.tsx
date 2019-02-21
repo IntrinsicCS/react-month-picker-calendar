@@ -39,6 +39,8 @@ export interface IProps {
   i18n?: Partial<II18n>,
   disabledInputChange?:boolean,
   className ?: string,
+  calendarHeaderFormat?: string,
+  hideNavigation?: boolean
 };
 
 export interface IState {
@@ -171,7 +173,7 @@ class MonthPickerInput extends Component<IProps, IState> {
   };
 
   calendar = (): JSX.Element => {
-    const { onChangeYearUpdate, rangePicker, className } = this.props
+    const { onChangeYearUpdate, rangePicker, className, calendarHeaderFormat, hideNavigation } = this.props
     const { year, month } = this.state;
     let lang = this.props.lang ? this.props.lang : 'default';
     return (
@@ -184,6 +186,8 @@ class MonthPickerInput extends Component<IProps, IState> {
           onOutsideClick={this.onCalendarOutsideClick}
           onChangeYearUpdate={onChangeYearUpdate}
           rangePicker={rangePicker}
+          calendarHeaderFormat={calendarHeaderFormat}
+          hideNavigation={hideNavigation}
         />
       </div>
     )

@@ -16,7 +16,9 @@ export interface IProps {
   onChange: (selectedYear: number, selectedMonth: number) => any,
   onOutsideClick: (e: any) => any,
   onChangeYearUpdate?: boolean,
-  rangePicker?: boolean
+  rangePicker?: boolean,
+  calendarHeaderFormat?: string,
+  hideNavigation?: boolean
 }
 
 export interface IState {
@@ -199,6 +201,8 @@ class MonthCalendar extends Component<IProps, IState> {
           year={selectedYear}
           month={selectedMonth ? selectedMonth + 1 : undefined}
           lang={this.props.lang}
+          calendarHeaderFormat={this.props.calendarHeaderFormat}
+          hideNavigation={this.props.hideNavigation}
           onValueClick={() => this.setState({ currentView: VIEW_YEARS })}
           onPrev={this.previous}
           onNext={this.next} />

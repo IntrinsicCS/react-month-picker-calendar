@@ -15,6 +15,8 @@ ReactDOM.render(
         With only default year
         <MonthPickerInput
           year={new Date().getFullYear()}
+          hideNavigation={true}
+          calendarHeaderFormat="YYYY"
           inputProps={{id: "ex-1", name: "ex-1"}} />
       </label>
 
